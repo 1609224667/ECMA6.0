@@ -1,0 +1,16 @@
+2020年5月8日
+1、新项目
+	在项目目录下，打开git，初始化本地仓库  git init
+2、将本地仓库与远程仓库相关联
+	git remote add origin https://github.com/1609224667/ECMA6.0.git
+3、将本地项目push到远程库
+	push之前先pull，但是因为这是两个不同的项目，直接pull会报错，所以需要这样写，
+	git pull origin master --allow-unrelated-histories，然后push
+
+	git add .
+
+	git commit -m "2018"
+
+	git push -u origin master
+
+	-u 只需要第一次加，作用是将本地仓库与远程仓库相关联起来
