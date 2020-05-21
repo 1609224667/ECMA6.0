@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // 老版本面向对象
+        // 构造函数
+        // function User(name,pass) {
+        //     this.name = name;
+        //     this.pass = pass;
+        // }
+        //
+        // User.prototype.showName = function () {
+        //     alert(this.name);
+        // };
+        // User.prototype.showPass = function () {
+        //     alert(this.pass);
+        // };
+
+        // es6
+        class User{
+            constructor(name,pass){
+                this.name = name;
+                this.pass = pass;
+            }
+            showName(){
+                alert(this.name);
+            }
+            showPass(){
+                alert(this.pass);
+            }
+        }
+        // 实例
+        var ul = new User('blue','123456');
+        ul.showName();
+        ul.showPass();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // function *show() {
+        //     alert('a');
+        //
+        //     let a = yield;
+        //
+        //     alert('b');
+        //     alert(a);//==>5
+        // }
+        // let gen = show();
+        //
+        // gen.next(12);//第一个next不能给yeild传参
+        // gen.next(5);
+        // console.log(genObj);
+
+        function *show() {
+            alert('a');
+
+            yield 12;
+
+            alert('b');
+            return 55;
+        }
+        let gen = show();
+
+        let res1 = gen.next();
+        console.log(res1); //{value:12,done:false}
+        let res2 = gen.next();
+        console.log(res2); //{value:55,done:false}
+    </script>
+</head>
+<body>
+
+</body>
+</html>

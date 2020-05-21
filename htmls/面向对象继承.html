@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // 老版本面向对象
+        // 构造函数
+        // function User(name,pass) {
+        //     this.name = name;
+        //     this.pass = pass;
+        // }
+        //
+        // User.prototype.showName = function () {
+        //     alert(this.name);
+        // };
+        // User.prototype.showPass = function () {
+        //     alert(this.pass);
+        // };
+        //
+        // // 继承
+        // function VipUser(name,pass,level) {
+        //     User.call(this,name,pass);
+        //     this.level = level;
+        // }
+        // VipUser.prototype = new User();
+        // VipUser.prototype.constructor = VipUser;
+        //
+        // VipUser.prototype.showLevel = function () {
+        //     alert(this.level);
+        // };
+        //
+        // var v1 = new VipUser('blue','123456',3);
+        //
+        // v1.showName();
+        // v1.showPass();
+        // v1.showLevel();
+
+        // es6
+        class User{
+            constructor(name,pass){
+                this.name = name;
+                this.pass = pass;
+            }
+            showName(){
+                alert(this.name);
+            }
+            showPass(){
+                alert(this.pass);
+            }
+        }
+
+        class VipUser extends User{
+            constructor(name,pass,level){
+                super(name,pass);
+                this.level = level;
+            }
+
+            showLevel(){
+                alert(this.level);
+            }
+
+
+        }
+
+        // 实例
+        var v1 = new VipUser('blue','123456',3);
+
+        v1.showName();
+        v1.showPass();
+        v1.showLevel();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

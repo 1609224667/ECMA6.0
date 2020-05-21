@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title> 页面名称 </title>
+    <script>
+        // let json ={a:12,b:5};
+        // // let str = 'http://it.kaikeba.com/path/user?data=' + JSON.stringify(json);
+        // let str = 'http://it.kaikeba.com/path/user?data=' + encodeURIComponent(JSON.stringify(json));
+        // alert(str);
+        let a = 12;
+        let b = 5;
+
+        let json = {a,b,c:55};
+        console.log(json);
+
+        let json = {
+            a:12,
+            show() {
+                alert(this.a);
+            }
+        };
+        json.show();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // 异步操作
+        // 1、回调
+        // 2、Promise
+        // 3、generator
+
+    //   回调
+        $.ajax({
+            url:'xxx',
+            dataType:'json',
+            success(data1) {
+                $.ajax({
+                    url:'xxx',
+                    dataType:'json',
+                    success(data2) {
+                        $.ajax({
+                            url:'xxx',
+                            dataType:'json',
+                            success(data3) {
+
+                            },
+                            error(err) {
+                                alert('错了');
+                            }
+                        });
+                    },
+                    error(err) {
+                        alert('错了');
+                    }
+                });
+            },
+            error(err) {
+                alert('错了');
+            }
+        });
+    // Promise
+        Promise.all([
+            $.ajax({url:'xxx',dataType:'json'}),
+            $.ajax({url:'xxx',dataType:'json'}),
+            $.ajax({url:'xxx',dataType:'json'}),
+        ]).then(results=>{
+            //成功
+        },err=>{
+            alert('错了')
+        })
+    //generator
+        runner(function *() {
+            let data1 = yield $.ajax({url:'xxx',dataType:'json'});
+            let data2 = yield $.ajax({url:'xxx',dataType:'json'});
+            let data3 = yield $.ajax({url:'xxx',dataType:'json'});
+
+            //  成功
+        })
+
+    //    带逻辑-generator
+        runner(function *() {
+            let userData = yield $.ajax({url:'xxx',dataType:'json'});
+
+            if(userData.type == 'VIP'){
+                let items = yield $.ajax({url:'xxx',dataType:'json'});
+            }else {
+                let items = yield $.ajax({url:'xxx',dataType:'json'});
+            }
+
+            //生成页面。。。
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

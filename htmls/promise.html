@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // let p1 = new Promise(function (resolve,reject) {
+        //     // 异步代码
+        //     // resolve 成功
+        //     // reject 失败
+        //
+        //     $.ajax({
+        //         url:'arr.txt',
+        //         dataType:'json',
+        //         success(arr){
+        //             resolve(arr);
+        //         },
+        //         error(err){
+        //             reject(err);
+        //         }
+        //     })
+        // });
+        // let p2 = new Promise(function (resolve,reject) {
+        //     // 异步代码
+        //     // resolve 成功
+        //     // reject 失败
+        //
+        //     $.ajax({
+        //         url:'arr.txt',
+        //         dataType:'json',
+        //         success(arr){
+        //             resolve(arr);
+        //         },
+        //         error(err){
+        //             reject(err);
+        //         }
+        //     })
+        // });
+        // // p1.then(function (arr) {
+        // //     alert('成功');
+        // // },function (err) {
+        // //     alert('失败');
+        // // })
+        //
+        // Promise.all([
+        //     p1,p2
+        // ]).then(function (arr) {
+        //     let [res1,res2] = arr;//结构赋值
+        //     alert('全都成功了');
+        //     console.log(res1,res2);
+        // },function (err) {
+        //     alert('至少有一个失败了');
+        // });
+
+
+    //            ||
+    //            简化代码如下
+
+
+        function creatPromise(url){
+            return new Promise(function (resolve,reject) {
+                $.ajax({
+                    url,  //json 名字和值相留一个
+                    dataType:'json',
+                    success(arr){
+                        resolve(arr);
+                    },
+                    error(err){
+                        reject(err);
+                    }
+                })
+            });
+        }
+        Promise.all([
+            creatPromise('arr.txt'),
+            creatPromise('json.txt'),
+        ]).then(function (arr) {
+            let [res1,res2] = arr;
+            alert('全都成功了');
+            alert(res1);
+            alert(res2);
+        },function (err) {
+            alert('至少有一个失败了');
+        })
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
